@@ -1,8 +1,10 @@
 import express, {Express} from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import mongoose from 'mongoose';
+
 import {router} from './router';
 
 const app: Express = express();
@@ -10,6 +12,7 @@ const app: Express = express();
 app.use(
   cors({credentials: true})
 );
+app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(bodyParser.json());
 app.use('/', router);
 

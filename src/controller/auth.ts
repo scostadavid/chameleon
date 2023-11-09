@@ -10,11 +10,11 @@ const signup = async (request: Request, response: Response) => {
       return response.sendStatus(400);
     }
 
-    const existingUser = await User.findOne({email});
+    // const existingUser = await User.findOne({email});
 
-    if (existingUser) {
-      return response.sendStatus(400);
-    }
+    // if (existingUser) {
+    //   return response.sendStatus(400);
+    // }
 
     const salt = crypto.randomBytes(128).toString('base64');
     const data = {
